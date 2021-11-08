@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.24.0",
+    "cheerio": "^1.0.0-rc.10",
     "mockjs": "^1.1.0",
     "mysql2": "^2.3.3-rc.0",
     "sequelize": "^6.9.0"
