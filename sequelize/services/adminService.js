@@ -23,3 +23,22 @@ exports.updateAdmin = async (adminObj, id) => {
   });
   return result;
 }
+
+exports.login = async (loginId, loginPwd) => {
+  const result = await Admin.findOne({
+    where: {
+      loginId,
+      loginPwd
+    }
+  })
+  // 判断大小写是否一致
+  if (result && result.loginId === loginId && result.loginPwd === loginPwd) {
+    return result.toJSON();
+  }
+  return null;
+}
+
+exports.getAdminById = async (id) => {
+  const result = await Admin.findByPk(id);
+  return result ? result.toJSON() : null;
+}

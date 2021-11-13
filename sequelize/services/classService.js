@@ -19,3 +19,8 @@ exports.updateClass = async (id, obj) => {
     }
   })
 }
+
+exports.getClasses = async () => {
+  const result = await Class.findAll();
+  return JSON.parse(JSON.stringify(result));
+}
