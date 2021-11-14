@@ -1,22 +1,14 @@
-require('./model/relations');
-// require('./mock/mockStudent');
+// require('./init');
+require('./services/init');
 
-// const studentServe = require('./services/studentService');
-// const bookServe = require('./services/bookService');
-// const classServe = require('./services/classService');
-const adminServe = require('./services/adminService');
+const studentServe = require('./services/studentService');
 
-adminServe.login('wangnima', 'wangnima').then((res) => {
-  console.log(res)
+studentServe.addStudent({
+  name: '小明',
+  birthday: '1998-01-01',
+  sex: true,
+  mobile: '18556567898',
+  classId: 11
+}).then((res) => {
+  console.log(res);
 })
-// studentServe.getStudents(1, 100, 1, '超').then((res) => {
-//   console.log(res);
-// })
-
-// bookServe.getBooks(1, 10, '的').then((res) => {
-//   console.log(res);
-// })
-
-// classServe.getClasses().then((res) => {
-//   console.log(res);
-// })
