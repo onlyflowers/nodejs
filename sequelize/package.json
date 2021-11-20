@@ -12,10 +12,14 @@
   "dependencies": {
     "axios": "^0.24.0",
     "cheerio": "^1.0.0-rc.10",
+    "express": "^4.17.1",
     "js-md5": "^0.7.3",
     "mockjs": "^1.1.0",
     "mysql2": "^2.3.3-rc.0",
     "sequelize": "^6.9.0",
     "validate.js": "^0.13.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }
