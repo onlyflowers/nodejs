@@ -79,7 +79,7 @@ exports.updateStudent = async (id, obj) => {
   })
 }
 
-exports.getStudents = async (page = 1, pageSize = 10, sex = -1, name) => {
+exports.getStudents = async (page = 1, pageSize = 10, sex = -1, name='') => {
   // const result = await Student.findAll({
   //   offset: (page - 1) * pageSize,
   //   limit: pageSize
@@ -102,4 +102,10 @@ exports.getStudents = async (page = 1, pageSize = 10, sex = -1, name) => {
     datas: JSON.parse(JSON.stringify(result.rows)),
     count: result.count
   }
+}
+
+exports.getStudentById = async (id) => {
+  const result = await Student.findByPk(id);
+  console.log(result)
+  return result;
 }
