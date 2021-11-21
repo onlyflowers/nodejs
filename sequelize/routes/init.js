@@ -11,8 +11,12 @@ app.use(express.urlencoded({ extended: true })); // extended:true 表示使用qs
 app.use(express.json());
 
 app.use('/api/student', require('./api/student'));
+app.use('/api/book', require('./api/book'));
+app.use('/api/admin', require('./api/admin'));
+app.use('/api/class', require('./api/class'));
 
-app.use(require('./errorMiddleware.js'))
+app.use(require('./errorMiddleware.js'));
+
 app.listen(5000, ()=> {
   console.log('listen on port 5000');
 })

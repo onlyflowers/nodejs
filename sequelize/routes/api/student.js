@@ -16,16 +16,17 @@ router.get('/:id', asyncHandler(async (req, res, next) => {
 }))
 
 router.post('/', asyncHandler(async (req) => {
-  console.log(req.body)
   return studentServe.addStudent(req.body);
 }))
 
-router.delete('/:id', (req, res) => {
-  res.send('获取学生')
-})
+router.delete('/:id', asyncHandler(async (req, res) => {
+  const id = req.params.id;
+  return studentServe.deleteStudent(id);
+}))
 
-router.put('/:id', (req, res) => {
-  res.send('获取学生')
-})
+router.put('/:id', asyncHandler((req, res) => {
+  const id = req.params.id;
+  return studentServe.updateStudent(id, req.body)
+}))
 
 module.exports = router;

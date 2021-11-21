@@ -20,7 +20,7 @@ exports.updateBook = async (id, obj) => {
   })
 }
 
-exports.getBooks = async (page, pageSize, name) => {
+exports.getBooks = async (page = 1, pageSize = 10, name = '') => {
   const where = {};
   if (name) {
     where.name = {
@@ -36,4 +36,8 @@ exports.getBooks = async (page, pageSize, name) => {
     data: JSON.parse(JSON.stringify(result.rows)),
     count: result.count
   }
+}
+
+exports.getBookById = async (id) => {
+  return Book.findByPk(id); 
 }
