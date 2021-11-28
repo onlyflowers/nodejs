@@ -34,7 +34,7 @@ exports.login = async (loginId, loginPwd) => {
     }
   })
   // 判断大小写是否一致
-  if (result && result.loginId === loginId && result.loginPwd === loginPwd) {
+  if (result && result.loginId === loginId) {
     return result.toJSON();
   }
   return null;

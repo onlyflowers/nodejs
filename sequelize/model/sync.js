@@ -4,6 +4,6 @@ require('./Student');
 require('./Class');
 const sequelize = require('./db');
 (async () => {
-  await sequelize.sync({ alter: true })
+  // await sequelize.sync({ alter: true })
   console.log('同步完成');
 })()
