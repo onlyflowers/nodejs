@@ -15,6 +15,10 @@ router.post('/login', asyncHandler(async (req, res) => {
   return result;
 }))
 
+router.get('/whoami', asyncHandler(async (req) => {
+  return adminServe.getAdminById(req.userId);
+}))
+
 router.get('/:id', asyncHandler(async (req) => {
   return adminServe.getAdminById(id);
 }))
@@ -33,5 +37,7 @@ router.put('/:id', asyncHandler(async (req) => {
   const id = req.params.id;
   return adminServe.updateAdmin(req.body);
 }))
+
+
 module.exports = router;
 

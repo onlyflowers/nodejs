@@ -11,6 +11,7 @@ const needToken = [
   { method: 'POST', path: '/api/student/' },
   { method: 'PUT', path: '/api/student/:id' },
   { method: 'GET', path: '/api/student/' },
+  { method: "GET", path: "/api/admin/whoami" },
 ];
 module.exports = (req, res, next) => {
   //1. 判断请求的接口是否需要携带token
