@@ -3,19 +3,14 @@ const router = express.Router();
 const { asyncHandler } = require('../utils');
 const adminServe = require('../../services/adminService');
 const cryptor = require('../../utils/crypt')
+const jwt = require('../jwt');
+
 router.post('/login', asyncHandler(async (req, res) => {
   const { loginId, loginPwd } = req.body;
   const result = await adminServe.login(loginId, loginPwd);
   if (result) {
-    const value = cryptor.encrypt(String(result.id));
-    // res.header('set-cookie', `token=${result.loginId}; path=/; domain=localhost; max-age=3600`);
-    res.cookie('token', value , {
-      path: '/',
-      domain: 'localhost',
-      maxAge: 24 * 3600, // 毫秒数
-      // httpOnly: true
-    })
-    res.header('authorization', value);
+    //登录成功 颁发token
+    jwt.publish(res, undefined, { id: result.id });
   }
   return result;
 }))
@@ -25,6 +20,7 @@ router.get('/:id', asyncHandler(async (req) => {
 }))
 
 router.post('/', asyncHandler(async (req) => {
+  console.log(req.headers)
   return adminServe.addAdmin(req.body);
 }))
 
